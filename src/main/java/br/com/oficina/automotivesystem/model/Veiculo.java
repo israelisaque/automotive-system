@@ -11,9 +11,8 @@ public class Veiculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private Montadora montadora;
-    private LocalDate ano;
+    @ManyToOne
+    private ModeloVeiculo modeloVeiculo;
     private Long km;
     private String placa;
     private LocalDate ultimaRevisao;
@@ -21,29 +20,19 @@ public class Veiculo {
     public Veiculo() {
     }
 
-    public Veiculo(Montadora montadora, LocalDate ano, Long km, String placa, LocalDate ultimaRevisao) {
-        this.montadora = montadora;
-        this.ano = ano;
+    public Veiculo(ModeloVeiculo modeloVeiculo, Long km, String placa, LocalDate ultimaRevisao) {
+        this.modeloVeiculo = modeloVeiculo;
         this.km = km;
         this.placa = placa;
         this.ultimaRevisao = ultimaRevisao;
     }
 
-
-    public Montadora getMontadora() {
-        return montadora;
+    public ModeloVeiculo getModeloVeiculo() {
+        return modeloVeiculo;
     }
 
-    public void setMontadora(Montadora montadora) {
-        this.montadora = montadora;
-    }
-
-    public LocalDate getAno() {
-        return ano;
-    }
-
-    public void setAno(LocalDate ano) {
-        this.ano = ano;
+    public void setModeloVeiculo(ModeloVeiculo modeloVeiculo) {
+        this.modeloVeiculo = modeloVeiculo;
     }
 
     public Long getKm() {
